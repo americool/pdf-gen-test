@@ -3,8 +3,8 @@ const puppeteer = require("puppeteer");
 (async () => {
   const browser = await puppeteer.launch({
       defaultViewport: {
-          width: 850,
-          height: 1100
+          width: 1133,
+          height: 1467
       }
   }); // launch a browser (chromium by default but you can chose another one)
   const page = await browser.newPage(); // open a page in the browser
@@ -20,6 +20,6 @@ const puppeteer = require("puppeteer");
     waitUntil: "networkidle0",
   }); // visit the printable version of your page
 
-  await page.pdf({ path: "./my_file.pdf" }); // generate the PDF 🎉
+  await page.pdf({ path: "./my_file.pdf", scale: 0.75 },); // generate the PDF 🎉
   await browser.close(); // don't forget to close the browser. Otherwise, it may cause performances issues or the server may even crash..
 })();
