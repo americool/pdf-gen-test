@@ -20,6 +20,7 @@ const puppeteer = require("puppeteer");
     waitUntil: "networkidle0",
   }); // visit the printable version of your page
 
-  await page.pdf({ path: "./my_file.pdf", scale: 0.75 },); // generate the PDF 🎉
+
+  await page.pdf({ width: 1133, height: 1467, path: "./my_file.pdf", scale: 1, printBackground: true }); // generate the PDF 🎉
   await browser.close(); // don't forget to close the browser. Otherwise, it may cause performances issues or the server may even crash..
 })();
